@@ -27,10 +27,10 @@ upper_lim_ad_dr=sorted(brand_df['Distribution_cose_Sales_-_Region'].values)[-1]
 lower_lim_ad_dr=sorted(brand_df['Distribution_cose_Sales_-_Region'].values)[0]
 
 
-ad_cost=st.slider(label='Enter your cost spent on Advertisement',min_value=math.ceil(lower_lim_ad_cost),max_value=math.ceil(upper_lim_ad_cost),value=1000000,step=1000)
-transfer_price=st.slider(label='Enter your cost on Transfer Price',min_value=math.ceil(lower_lim_ad_tp),max_value=math.ceil(upper_lim_ad_tp),value=1000000,step=1000)
-dist_sc=st.slider(label='Enter your cost spent on Distribution Costs, Supply Chain',min_value=math.ceil(lower_lim_ad_dsc),max_value=math.ceil(upper_lim_ad_dsc),value=1000000,step=1000)
-dist_reg=st.slider(label='Enter your cost spent on Distribution Costs, Region',min_value=math.ceil(lower_lim_ad_dr),max_value=math.ceil(upper_lim_ad_dr),value=1000000,step=1000)
+ad_cost=st.slider(label='Enter your cost spent on Advertisement',min_value=0,max_value=math.ceil(upper_lim_ad_cost),value=1000000,step=1000)
+transfer_price=st.slider(label='Enter your cost on Transfer Price',min_value=0,max_value=math.ceil(upper_lim_ad_tp),value=1000000,step=1000)
+dist_sc=st.slider(label='Enter your cost spent on Distribution Costs, Supply Chain',min_value=0,max_value=math.ceil(upper_lim_ad_dsc),value=1000000,step=1000)
+dist_reg=st.slider(label='Enter your cost spent on Distribution Costs, Region',min_value=0,max_value=math.ceil(upper_lim_ad_dr),value=1000000,step=1000)
      
 
 

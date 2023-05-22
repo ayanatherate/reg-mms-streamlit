@@ -40,10 +40,10 @@ def make_linear_reg_mods(data):
     
     
     
-    ad_cost=st.text_input(f'Enter the cost you want to spend on Advertisement UL {upper_lim_ad_cost}:')))
-    tranf_price=st.text_input(f'Enter the estimated cost on Transfer Price UL {upper_lim_ad_tp}:')))
-    dist_cost_sc=st.text_input(f'Enter the estimated cost on Distribution Cost of Supply Chain UL{upper_lim_ad_dsc}:')))
-    dist_cost_reg=st.text_input(f'Enter the estimated cost on Distribution Cost of Supply Chain in Region UL{upper_lim_ad_dr}:')))
+    ad_cost=st.text_input(f'Enter the cost you want to spend on Advertisement UL {upper_lim_ad_cost}:')
+    tranf_price=st.text_input(f'Enter the estimated cost on Transfer Price UL {upper_lim_ad_tp}:')
+    dist_cost_sc=st.text_input(f'Enter the estimated cost on Distribution Cost of Supply Chain UL{upper_lim_ad_dsc}:')
+    dist_cost_reg=st.text_input(f'Enter the estimated cost on Distribution Cost of Supply Chain in Region UL{upper_lim_ad_dr}:')
 
 
     ad_cost=st.select_slider('Enter the cost you want to spend on Advertisement',value=[upper_lim_ad_cost,lower_lim_ad_cost])

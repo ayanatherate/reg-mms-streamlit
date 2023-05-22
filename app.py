@@ -26,8 +26,8 @@ upper_lim_ad_dr=sorted(brand_df['Distribution_cose_Sales_-_Region'].values)[-1]
 lower_lim_ad_dr=sorted(brand_df['Distribution_cose_Sales_-_Region'].values)[0]
 
 
-ad_cost=st.select_slider(label='',options=[lower_lim_ad_cost,upper_lim_ad_cost],value=[lower_lim_ad_cost,upper_lim_ad_cost])
-ad_cost=st.select_slider(label='',options=[upper_lim_ad_cost,lower_lim_ad_cost],value=[upper_lim_ad_cost,lower_lim_ad_cost])
+ad_cost=st.select_slider(label='Enter your cost spent on Advertisement',options=[lower_lim_ad_cost,upper_lim_ad_cost],value=[lower_lim_ad_cost,upper_lim_ad_cost])
+#ad_cost=st.select_slider(label='',options=[upper_lim_ad_cost,lower_lim_ad_cost],value=[upper_lim_ad_cost,lower_lim_ad_cost])
      
 
 

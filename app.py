@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 data=pd.read_csv('https://raw.githubusercontent.com/ayanatherate/reg-mms-streamlit/main/df_data_for_streamlit.csv')
 brand_choices=list(set(data['Brand_Family_Desc'].tolist()))
 
-brand_name=st.select_box('Choose a Brand',options=brand_choices)
+brand_name=st.selectbox('Choose a Brand',options=brand_choices)
 
 
 

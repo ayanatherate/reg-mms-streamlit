@@ -7,8 +7,8 @@ from sklearn.model_selection import train_test_split
 
 data=pd.read_csv('https://raw.githubusercontent.com/ayanatherate/reg-mms-streamlit/main/df_data_for_streamlit.csv')
 numeric_cols=data
-brand_choices=list(set(data['Brand_Family_Desc'].tolist()))
 
+brand_choices=list(set(data['Brand_Family_Desc'].tolist()))
 brand_name=st.selectbox('Choose a Brand',options=brand_choices)
 brand_df=numeric_cols[numeric_cols['Brand_Family_Desc']==brand_name]
 
@@ -26,7 +26,7 @@ upper_lim_ad_dr=sorted(brand_df['Distribution_cose_Sales_-_Region'].values)[-1]
 lower_lim_ad_dr=sorted(brand_df['Distribution_cose_Sales_-_Region'].values)[0]
 
 
-ad_cost=st.select_slider(label='Enter your cost spent on Advertisement',options=(lower_lim_ad_cost,upper_lim_ad_cost),value=[i for i in range(lower_lim_ad_cost,upper_lim_ad_cost)])
+ad_cost=st.slider(label='Enter your cost spent on Advertisement',min_value=lower_lim_ad_cost,max_value=upper_lim_ad_cost,value=1000000)
 #ad_cost=st.select_slider(label='',options=[upper_lim_ad_cost,lower_lim_ad_cost],value=[upper_lim_ad_cost,lower_lim_ad_cost])
      
 

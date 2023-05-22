@@ -5,6 +5,8 @@ import math
 from sklearn.linear_model import LinearRegression as linreg
 from sklearn.model_selection import train_test_split
 
+from perf-reg
+
 
 data=pd.read_csv('https://raw.githubusercontent.com/ayanatherate/reg-mms-streamlit/main/df_data_for_streamlit.csv')
 numeric_cols=data

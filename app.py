@@ -9,6 +9,20 @@ data=pd.read_csv('https://raw.githubusercontent.com/ayanatherate/reg-mms-streaml
 brand_choices=list(set(data['Brand_Family_Desc'].tolist()))
 
 brand_name=st.selectbox('Choose a Brand',options=brand_choices)
+brand_df=numeric_cols[numeric_cols['Brand_Family_Desc']==brand_name]
+
+
+upper_lim_ad_cost=sorted(brand_df['Advertisement_and_discount_cost'].values)[-1]
+lower_lim_ad_cost=sorted(brand_df['Advertisement_and_discount_cost'].values)[0]
+
+upper_lim_ad_tp=sorted(brand_df['Transfer_Price_COGS'].values)[-1]
+lower_lim_ad_tp=sorted(brand_df['Transfer_Price_COGS'].values)[0]
+    
+upper_lim_ad_dsc=sorted(brand_df['Distribution_cost_supply_chain'].values)[-1]
+lower_lim_ad_dsc=sorted(brand_df['Distribution_cost_supply_chain'].values)[0]
+    
+upper_lim_ad_dr=sorted(brand_df['Distribution_cose_Sales_-_Region'].values)[-1]
+lower_lim_ad_dr=sorted(brand_df['Distribution_cose_Sales_-_Region'].values)[0]
 
 
 
@@ -21,22 +35,7 @@ def make_linear_reg_mods(data):
     numeric_cols=data
     
     
-    brand_name=st.text_input('Enter the Brand name: ')
-    brand_df=numeric_cols[numeric_cols['Brand_Family_Desc']==brand_name]
-    brand_df.drop(['Brand_Family_Desc','volume_sold_in_9L','Volume_sold_in_cases'],axis=1,inplace=True)
-            
-    upper_lim_ad_cost=sorted(brand_df['Advertisement_and_discount_cost'].values)[-1]
-    lower_lim_ad_cost=sorted(brand_df['Advertisement_and_discount_cost'].values)[0]
     
-    
-    upper_lim_ad_tp=sorted(brand_df['Transfer_Price_COGS'].values)[-1]
-    lower_lim_ad_tp=sorted(brand_df['Transfer_Price_COGS'].values)[0]
-    
-    upper_lim_ad_dsc=sorted(brand_df['Distribution_cost_supply_chain'].values)[-1]
-    lower_lim_ad_dsc=sorted(brand_df['Distribution_cost_supply_chain'].values)[0]
-    
-    upper_lim_ad_dr=sorted(brand_df['Distribution_cose_Sales_-_Region'].values)[-1]
-    lower_lim_ad_dr=sorted(brand_df['Distribution_cose_Sales_-_Region'].values)[0]
     
     
     

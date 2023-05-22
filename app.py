@@ -1,9 +1,16 @@
 import streamlit as st
 import pandas as pd 
 import numpy as np  
+from sklearn.linear_model import LinearRegression as linreg
+from sklearn.model_selection import train_test_split
 
 
 data=pd.read_csv('https://raw.githubusercontent.com/ayanatherate/reg-mms-streamlit/main/df_data_for_streamlit.csv')
+brand_choices=list(set(data['Brand_Family_Desc'].tolist()))
+
+brand_name=st.select_box('Choose a Brand',options=brand_choices)
+
+
 
 def make_linear_reg_mods(data):
     
@@ -33,10 +40,14 @@ def make_linear_reg_mods(data):
     
     
     
-    ad_cost=np.log(int(input(f'Enter the cost you want to spend on Advertisement UL {upper_lim_ad_cost}:')))
-    tranf_price=np.log(int(input(f'Enter the estimated cost on Transfer Price UL {upper_lim_ad_tp}:')))
-    dist_cost_sc=np.log(int(input(f'Enter the estimated cost on Distribution Cost of Supply Chain UL{upper_lim_ad_dsc}:')))
-    dist_cost_reg=np.log(int(input(f'Enter the estimated cost on Distribution Cost of Supply Chain in Region UL{upper_lim_ad_dr}:')))
+    ad_cost=st.text_input(f'Enter the cost you want to spend on Advertisement UL {upper_lim_ad_cost}:')))
+    tranf_price=st.text_input(f'Enter the estimated cost on Transfer Price UL {upper_lim_ad_tp}:')))
+    dist_cost_sc=st.text_input(f'Enter the estimated cost on Distribution Cost of Supply Chain UL{upper_lim_ad_dsc}:')))
+    dist_cost_reg=st.text_input(f'Enter the estimated cost on Distribution Cost of Supply Chain in Region UL{upper_lim_ad_dr}:')))
+
+
+    ad_cost=st.select_slider('Enter the cost you want to spend on Advertisement',value=[upper_lim_ad_cost,lower_lim_ad_cost])
+    ad_cost=st.select_slider('Enter the cost you want to spend on Advertisement',value=[upper_lim_ad_cost,lower_lim_ad_cost])
      
         
     
@@ -56,6 +67,7 @@ def make_linear_reg_mods(data):
     
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
     
+    linreg=linreg()
     
     linreg.fit(X_train,y_train)
     y_pred=linreg.predict(X_test)

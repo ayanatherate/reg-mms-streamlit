@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd 
 import numpy as np  
+import math
 from sklearn.linear_model import LinearRegression as linreg
 from sklearn.model_selection import train_test_split
 
@@ -26,7 +27,7 @@ upper_lim_ad_dr=sorted(brand_df['Distribution_cose_Sales_-_Region'].values)[-1]
 lower_lim_ad_dr=sorted(brand_df['Distribution_cose_Sales_-_Region'].values)[0]
 
 
-ad_cost=st.slider(label='Enter your cost spent on Advertisement',min_value=lower_lim_ad_cost,max_value=upper_lim_ad_cost,value=1000000)
+ad_cost=st.slider(label='Enter your cost spent on Advertisement',min_value=math.ceil(lower_lim_ad_cost),max_value=math.ceil(upper_lim_ad_cost),value=1000000,step=1000)
 #ad_cost=st.select_slider(label='',options=[upper_lim_ad_cost,lower_lim_ad_cost],value=[upper_lim_ad_cost,lower_lim_ad_cost])
      
 

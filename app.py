@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np  
 
 
-
+data=pd.read_csv('https://raw.githubusercontent.com/ayanatherate/reg-mms-streamlit/main/df_data_for_streamlit.csv')
 
 def make_linear_reg_mods(data):
     
@@ -11,7 +11,7 @@ def make_linear_reg_mods(data):
     warnings.filterwarnings('ignore')
     
     
-    
+    numeric_cols=data
     
     
     brand_name=st.text_input('Enter the Brand name: ')

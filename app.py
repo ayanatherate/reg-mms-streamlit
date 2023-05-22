@@ -28,81 +28,20 @@ lower_lim_ad_dr=sorted(brand_df['Distribution_cose_Sales_-_Region'].values)[0]
 
 
 ad_cost=st.slider(label='Enter your cost spent on Advertisement',min_value=0,max_value=math.ceil(upper_lim_ad_cost),value=1000000,step=1000)
-transfer_price=st.slider(label='Enter your cost on Transfer Price',min_value=0,max_value=math.ceil(upper_lim_ad_tp),value=1000000,step=1000)
-dist_sc=st.slider(label='Enter your cost spent on Distribution Costs, Supply Chain',min_value=0,max_value=math.ceil(upper_lim_ad_dsc),value=1000000,step=1000)
-dist_reg=st.slider(label='Enter your cost spent on Distribution Costs, Region',min_value=0,max_value=math.ceil(upper_lim_ad_dr),value=1000000,step=1000)
+tranf_price=st.slider(label='Enter your cost on Transfer Price',min_value=0,max_value=math.ceil(upper_lim_ad_tp),value=1000000,step=1000)
+dist_cost_sc=st.slider(label='Enter your cost spent on Distribution Costs, Supply Chain',min_value=0,max_value=math.ceil(upper_lim_ad_dsc),value=1000000,step=1000)
+dist_cost_reg=st.slider(label='Enter your cost spent on Distribution Costs, Region',min_value=0,max_value=math.ceil(upper_lim_ad_dr),value=1000000,step=1000)
      
 
 
 
-def make_linear_reg_mods(data):
-    
-    import warnings
-    warnings.filterwarnings('ignore')
-    
-    
-    numeric_cols=data
-    
-    
-    
-    
-    
-    
-    ad_cost=st.text_input(f'Enter the cost you want to spend on Advertisement UL {upper_lim_ad_cost}:')
-    tranf_price=st.text_input(f'Enter the estimated cost on Transfer Price UL {upper_lim_ad_tp}:')
-    dist_cost_sc=st.text_input(f'Enter the estimated cost on Distribution Cost of Supply Chain UL{upper_lim_ad_dsc}:')
-    dist_cost_reg=st.text_input(f'Enter the estimated cost on Distribution Cost of Supply Chain in Region UL{upper_lim_ad_dr}:')
 
-
-    ad_cost=st.select_slider('Enter the cost you want to spend on Advertisement',value=[upper_lim_ad_cost,lower_lim_ad_cost])
-    ad_cost=st.select_slider('Enter the cost you want to spend on Advertisement',value=[upper_lim_ad_cost,lower_lim_ad_cost])
-     
-        
-    
-    
-    
-    
-    
-    
-    for col in brand_df.columns.tolist():
-        brand_df[col]=np.log(brand_df[col])
-        
-    brand_df.dropna(inplace=True)   
-    X=brand_df.drop(['Gross_Sales'],axis=1)
-    y=brand_df['Gross_Sales']
-    
-    
-    
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
-    
-    linreg=linreg()
-    
-    linreg.fit(X_train,y_train)
-    y_pred=linreg.predict(X_test)
-    
-    coefficients = linreg.coef_
-    intercept=linreg.intercept_
-                     
-    ad_coef=coefficients[0]
-    transf_coef=coefficients[1]
-    dist_sc=coefficients[2]
-    dist_sc_region=coefficients[3]
-    
-    print(coefficients)
-    print(ad_cost)
-    
-    ans=(ad_coef*ad_cost)+(transf_coef*tranf_price)+(dist_sc*dist_cost_sc)+(dist_sc_region*dist_cost_reg)+intercept
-    
-    print(f'Intercept: {intercept}')
-
-    ans=np.exp(ans)
     
     
         
                      
     
-    print(f'Based on a regression model trained on {len(X_train)} records, with a R2 score of {r2(y_test,y_pred)}\
-    it can be said that, the estimated GROSS SALES would be {round(ans,3)}')
+    
     
     
     

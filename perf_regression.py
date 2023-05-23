@@ -3,6 +3,8 @@ import numpy as np
 from sklearn.linear_model import LinearRegression as linreg
 from sklearn.model_selection import train_test_split
 
+linreg=linreg()
+
 
 def make_linear_reg_mods(brand_df,ad_cost,tranf_price,dist_cost_sc,dist_cost_reg):
     
@@ -17,7 +19,7 @@ def make_linear_reg_mods(brand_df,ad_cost,tranf_price,dist_cost_sc,dist_cost_reg
     
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
     
-    linreg=linreg()
+    
     
     linreg.fit(X_train,y_train)
     y_pred=linreg.predict(X_test)

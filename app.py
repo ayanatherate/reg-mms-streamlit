@@ -14,7 +14,7 @@ brand_choices=list(set(data['Brand_Family_Desc'].tolist()))
 brand_name=st.selectbox('Choose a Brand',options=brand_choices)
 brand_df=numeric_cols[numeric_cols['Brand_Family_Desc']==brand_name]
 
-brand_df.drop(['Unnamed: 0'],axis=1,inplace=True)
+brand_df.drop(['Unnamed: 0','Brand_Family_Desc'],axis=1,inplace=True)
 
 brand_df['Advertisement_and_discount_cost']=brand_df['Advertisement_and_discount_cost'].astype('float64')
 brand_df['Transfer_Price_COGS']=brand_df['Transfer_Price_COGS'].astype('float64')

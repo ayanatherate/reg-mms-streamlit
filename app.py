@@ -10,8 +10,8 @@ from perf_regression import make_linear_reg_mods
 data=pd.read_csv('https://raw.githubusercontent.com/ayanatherate/reg-mms-streamlit/main/data_for_streamlit.csv')
 numeric_cols=data
 
-data['Brand_Family_Desc']=data['Brand_Family_Desc'].fillna('ALL')
-data['region_desc']=data['region_desc'].fillna('ALL')
+data['Brand_Family_Desc'].fillna('ALL',inplace=True)
+data['region_desc'].fillna('ALL',inplace=True)
 
 brand_choices=list(set(data['Brand_Family_Desc'].tolist()))
 region_choices=list(set(data['region_desc'].tolist()))

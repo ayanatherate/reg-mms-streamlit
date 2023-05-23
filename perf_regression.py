@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 def make_linear_reg_mods(brand_df,ad_cost,tranf_price,dist_cost_sc,dist_cost_reg):
     
     for col in brand_df.columns.tolist():
-        brand_df[col]=np.log(brand_df[col])
+        brand_df[col]=np.log(brand_df[col].values)
         
     brand_df.dropna(inplace=True)   
     X=brand_df.drop(['Gross_Sales'],axis=1)

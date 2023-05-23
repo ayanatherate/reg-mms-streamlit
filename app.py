@@ -56,9 +56,7 @@ coef,intrcpt,ans=make_linear_reg_mods(brand_df,ad_cost,tranf_price,dist_cost_sc,
 st.title(f'The estimated Gross Sales is {ans}')
 
 st.caption('SEE ALSO:')
-st.caption('Coefficients')
-st.write(coef)
-
+st.caption(f'Coefficients: {coef[0]},{coef[1]},{coef[2]},{coef[3]}')
 st.caption(f'Intercept value: {intrcpt}')
      
 

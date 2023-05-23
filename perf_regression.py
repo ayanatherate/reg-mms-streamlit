@@ -33,7 +33,7 @@ def make_linear_reg_mods(brand_df,ad_cost,tranf_price,dist_cost_sc,dist_cost_reg
     dist_sc_region=coefficients[3]
     
     ans=(ad_coef*ad_cost)+(transf_coef*tranf_price)+(dist_sc*dist_cost_sc)+(dist_sc_region*dist_cost_reg)+intercept
-    ans=np.exp(ans)
+    #ans=np.exp(ans)
 
     return coefficients, intercept, ans
 

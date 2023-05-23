@@ -53,7 +53,7 @@ dist_cost_reg=np.log(dist_cost_reg)
 
 coef,intrcpt,ans=make_linear_reg_mods(brand_df,ad_cost,tranf_price,dist_cost_sc,dist_cost_reg)
 
-st.title(f'The estimated Gross Sales is {ans}'.)
+st.title(f'The estimated Gross Sales is {ans}')
 
 st.caption('SEE ALSO:')
 st.caption('Coefficients')

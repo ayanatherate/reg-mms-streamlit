@@ -13,7 +13,7 @@ numeric_cols=data
 brand_choices=list(set(data['Brand_Family_Desc'].tolist()))
 region_choices=list(set(data['region_desc'].tolist()))
 
-brand_choices=brand_choices.remove('nan')
+#brand_choices=brand_choices.remove('nan')
 region_choices=region_choices.remove('nan')
 
 brand_name=st.selectbox('Choose a Brand',options=brand_choices)

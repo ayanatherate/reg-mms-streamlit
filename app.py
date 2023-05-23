@@ -8,7 +8,6 @@ from perf_regression import make_linear_reg_mods
 
 
 data=pd.read_csv('https://raw.githubusercontent.com/ayanatherate/reg-mms-streamlit/main/data_for_streamlit.csv')
-st.title(len(data))
 
 
 data['Brand_Family_Desc'].fillna('ALL',inplace=True)
@@ -34,15 +33,12 @@ elif brand_name=='ALL' and region_name=='ALL':
 else:
     brand_df=numeric_cols[(numeric_cols['Brand_Family_Desc']==brand_name) & (numeric_cols['region_desc']==region_name)]
     if len(brand_df)==0:
-        st.title('Insufficent Data')
+        st.title('Insufficent Data in either Region or Brand to train a Model.')
         st.stop()
     
 
 
 
-
-
-st.title(len(brand_df))
 
 #brand_df.drop(['Unnamed: 0','Brand_Family_Desc','region_desc'],axis=1,inplace=True)
 
@@ -57,6 +53,8 @@ brand_df['Distribution_cost_supply_chain']=brand_df['Distribution_cost_supply_ch
 brand_df['Distribution_cose_Sales_-_Region']=brand_df['Distribution_cose_Sales_-_Region'].fillna(brand_df['Distribution_cose_Sales_-_Region'].mean())
 
 brand_df.replace(0,0.007,inplace=True)
+
+st.write(brand_df)
 
 brand_df.drop(['Unnamed: 0','Brand_Family_Desc','region_desc'],axis=1,inplace=True)
 

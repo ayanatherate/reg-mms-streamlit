@@ -18,12 +18,21 @@ region_name=st.selectbox('Choose a Region',options=region_choices)
 
 brand_df=numeric_cols[(numeric_cols['Brand_Family_Desc']==brand_name) & (numeric_cols['region_desc']==region_name)]
 
-brand_df.drop(['Unnamed: 0','Brand_Family_Desc','region_desc'],axis=1,inplace=True)
+#brand_df.drop(['Unnamed: 0','Brand_Family_Desc','region_desc'],axis=1,inplace=True)
 
 brand_df['Advertisement_and_discount_cost']=brand_df['Advertisement_and_discount_cost'].astype('float64')
 brand_df['Transfer_Price_COGS']=brand_df['Transfer_Price_COGS'].astype('float64')
 brand_df['Distribution_cost_supply_chain']=brand_df['Distribution_cost_supply_chain'].astype('float64')
 brand_df['Distribution_cose_Sales_-_Region']=brand_df['Distribution_cose_Sales_-_Region'].astype('float64')
+
+brand_df['Advertisement_and_discount_cost']=brand_df['Advertisement_and_discount_cost'].fillna(brand_df['Advertisement_and_discount_cost'].mean())
+brand_df['Transfer_Price_COGS']=brand_df['Transfer_Price_COGS'].fillna(brand_df['Transfer_Price_COGS'].mean())
+brand_df['Distribution_cost_supply_chain']=brand_df['Distribution_cost_supply_chain'].fillna(brand_df['Distribution_cost_supply_chain'].mean())
+brand_df['Distribution_cose_Sales_-_Region']=brand_df['Distribution_cose_Sales_-_Region'].fillna(brand_df['Distribution_cose_Sales_-_Region'].mean())
+
+brand_df.replace(0,0.007,inplace=True)
+
+brand_df.drop(['Unnamed: 0','Brand_Family_Desc','region_desc'],axis=1,inplace=True)
 
 
 upper_lim_ad_cost=sorted(brand_df['Advertisement_and_discount_cost'].values)[-1]
@@ -48,7 +57,7 @@ time.sleep(1)
 dist_cost_reg=st.slider(label='Enter your cost spent on Distribution Costs, Region',min_value=1,max_value=100000000,value=1000000,step=1000)
 time.sleep(1)
 
-brand_df.replace(0,0.007,inplace=True)
+
 
 ad_cost=np.log(ad_cost)
 tranf_price=np.log(tranf_price)

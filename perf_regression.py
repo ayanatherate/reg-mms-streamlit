@@ -2,6 +2,7 @@
 import numpy as np
 from sklearn.linear_model import LinearRegression as linreg
 from sklearn.model_selection import train_test_split
+import streamlit as st
 
 linreg=linreg()
 

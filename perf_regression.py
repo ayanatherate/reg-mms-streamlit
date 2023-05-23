@@ -1,3 +1,9 @@
+
+import numpy as np
+from sklearn.linear_model import LinearRegression as linreg
+from sklearn.model_selection import train_test_split
+
+
 def make_linear_reg_mods(brand_df,ad_cost,tranf_price,dist_cost_sc,dist_cost_reg):
     
     for col in brand_df.columns.tolist():

@@ -2,8 +2,7 @@ import streamlit as st
 import pandas as pd 
 import numpy as np  
 import math
-from sklearn.linear_model import LinearRegression as linreg
-from sklearn.model_selection import train_test_split
+import time
 
 from perf_regression import make_linear_reg_mods
 
@@ -30,9 +29,13 @@ lower_lim_ad_dr=sorted(brand_df['Distribution_cose_Sales_-_Region'].values)[0]
 
 
 ad_cost=st.slider(label='Enter your cost spent on Advertisement',min_value=0,max_value=math.ceil(upper_lim_ad_cost),value=1000000,step=1000)
+time.sleep(1)
 tranf_price=st.slider(label='Enter your cost on Transfer Price',min_value=0,max_value=math.ceil(upper_lim_ad_tp),value=1000000,step=1000)
+time.sleep(1)
 dist_cost_sc=st.slider(label='Enter your cost spent on Distribution Costs, Supply Chain',min_value=0,max_value=math.ceil(upper_lim_ad_dsc),value=1000000,step=1000)
+time.sleep(1)
 dist_cost_reg=st.slider(label='Enter your cost spent on Distribution Costs, Region',min_value=0,max_value=math.ceil(upper_lim_ad_dr),value=1000000,step=1000)
+time.sleep(1)
 
 coef,intrcpt,ans=make_linear_reg_mods(brand_df,ad_cost,tranf_price,dist_cost_sc,dist_cost_reg)
 

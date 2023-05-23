@@ -51,12 +51,15 @@ tranf_price=np.log(tranf_price)
 dist_cost_sc=np.log(dist_cost_sc)
 dist_cost_reg=np.log(dist_cost_reg)
 
-st.write(upper_lim_ad_dsc)
-st.write(brand_df)
 coef,intrcpt,ans=make_linear_reg_mods(brand_df,ad_cost,tranf_price,dist_cost_sc,dist_cost_reg)
 
-st.title(ans)
+st.title(f'The estimated Gross Sales is {ans}'.)
 
+st.caption('SEE ALSO:')
+st.caption('Coefficients')
+st.write(coef)
+
+st.caption(f'Intercept value: {intrcpt}')
      
 
 

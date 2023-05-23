@@ -37,6 +37,7 @@ time.sleep(1)
 dist_cost_reg=st.slider(label='Enter your cost spent on Distribution Costs, Region',min_value=0,max_value=math.ceil(upper_lim_ad_dr),value=1000000,step=1000)
 time.sleep(1)
 st.write(brand_df)
+brand_df.replace(0,0.007,inplace=True)
 coef,intrcpt,ans=make_linear_reg_mods(brand_df,ad_cost,tranf_price,dist_cost_sc,dist_cost_reg)
 
 st.title(ans)

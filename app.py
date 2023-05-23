@@ -14,6 +14,13 @@ brand_choices=list(set(data['Brand_Family_Desc'].tolist()))
 brand_name=st.selectbox('Choose a Brand',options=brand_choices)
 brand_df=numeric_cols[numeric_cols['Brand_Family_Desc']==brand_name]
 
+brand_df.drop(['Unnamed: 0'],axis=1,inplace=True)
+
+brand_df['Advertisement_and_discount_cost']=brand_df['Advertisement_and_discount_cost'].astype('float64')
+brand_df['Transfer_Price_COGS']=brand_df['Transfer_Price_COGS'].astype('float64')
+brand_df['Distribution_cost_supply_chain']=brand_df['Distribution_cost_supply_chain'].astype('float64')
+brand_df['Distribution_cose_Sales_-_Region']=brand_df['Distribution_cose_Sales_-_Region'].astype('float64')
+
 
 upper_lim_ad_cost=sorted(brand_df['Advertisement_and_discount_cost'].values)[-1]
 lower_lim_ad_cost=sorted(brand_df['Advertisement_and_discount_cost'].values)[0]

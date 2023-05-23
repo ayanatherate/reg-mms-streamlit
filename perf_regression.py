@@ -1,4 +1,4 @@
-def make_linear_reg_mods(brand_df):
+def make_linear_reg_mods(brand_df,ad_cost,tranf_price,dist_cost_sc,dist_cost_reg):
     
     for col in brand_df.columns.tolist():
         brand_df[col]=np.log(brand_df[col])
@@ -31,4 +31,4 @@ def make_linear_reg_mods(brand_df):
 
 
 if '__name__'=='__main__':
-    make_linear_reg_mods(brand_df)
+    make_linear_reg_mods(brand_df,ad_cost,tranf_price,dist_cost_sc,dist_cost_reg)

@@ -24,6 +24,8 @@ region_name=st.selectbox('Choose a Region',options=region_choices)
 
 brand_df=numeric_cols[(numeric_cols['Brand_Family_Desc']==brand_name) & (numeric_cols['region_desc']==region_name)]
 
+st.title(len(brand_df))
+
 #brand_df.drop(['Unnamed: 0','Brand_Family_Desc','region_desc'],axis=1,inplace=True)
 
 brand_df['Advertisement_and_discount_cost']=brand_df['Advertisement_and_discount_cost'].astype('float64')

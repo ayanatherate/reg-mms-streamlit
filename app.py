@@ -16,7 +16,7 @@ region_choices=list(set(data['region_desc'].tolist()))
 brand_name=st.selectbox('Choose a Brand',options=brand_choices)
 region_name=st.selectbox('Choose a Region',options=region_choices)
 
-brand_df=numeric_cols[(numeric_cols['Brand_Family_Desc']==brand_name) & (numeric_cols['Brand_Family_Desc']==region_name)]
+brand_df=numeric_cols[(numeric_cols['Brand_Family_Desc']==brand_name) & (numeric_cols['region_desc']==region_name)]
 
 brand_df.drop(['Unnamed: 0','Brand_Family_Desc'],axis=1,inplace=True)
 

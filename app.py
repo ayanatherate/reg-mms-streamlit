@@ -22,7 +22,22 @@ region_choices=list(set(data['region_desc'].tolist()))
 brand_name=st.selectbox('Choose a Brand',options=brand_choices)
 region_name=st.selectbox('Choose a Region',options=region_choices)
 
-brand_df=numeric_cols[(numeric_cols['Brand_Family_Desc']==brand_name) & (numeric_cols['region_desc']==region_name)]
+if brand_name=='ALL':
+    brand_df=numeric_cols[numeric_cols['region_desc']==region_name]
+elif region_name=='ALL':
+    brand_df=numeric_cols[numeric_cols['Brand_Family_Desc']==brand_name]
+elif brand_name=='ALL' and region_name=='ALL':
+    brand_df=numeric_cols
+else:
+    brand_df=numeric_cols[(numeric_cols['Brand_Family_Desc']==brand_name) & (numeric_cols['region_desc']==region_name)]
+    if len(brand_df)==0:
+        st.title('Insufficent Data')
+        st.stop()
+    
+
+
+
+
 
 st.title(len(brand_df))
 

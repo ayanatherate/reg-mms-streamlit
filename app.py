@@ -33,6 +33,11 @@ ad_cost=st.slider(label='Enter your cost spent on Advertisement',min_value=0,max
 tranf_price=st.slider(label='Enter your cost on Transfer Price',min_value=0,max_value=math.ceil(upper_lim_ad_tp),value=1000000,step=1000)
 dist_cost_sc=st.slider(label='Enter your cost spent on Distribution Costs, Supply Chain',min_value=0,max_value=math.ceil(upper_lim_ad_dsc),value=1000000,step=1000)
 dist_cost_reg=st.slider(label='Enter your cost spent on Distribution Costs, Region',min_value=0,max_value=math.ceil(upper_lim_ad_dr),value=1000000,step=1000)
+
+coef,intrcpt,ans=make_linear_reg_mods(brand_df,ad_cost,tranf_price,dist_cost_sc,dist_cost_reg)
+
+st.title(ans)
+
      
 
 

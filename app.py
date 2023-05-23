@@ -7,7 +7,7 @@ import time
 from perf_regression import make_linear_reg_mods
 
 
-data=pd.read_csv('https://raw.githubusercontent.com/ayanatherate/reg-mms-streamlit/main/df_data_for_streamlit.csv')
+data=pd.read_csv('https://raw.githubusercontent.com/ayanatherate/reg-mms-streamlit/main/data_for_streamlit.csv')
 numeric_cols=data
 
 brand_choices=list(set(data['Brand_Family_Desc'].tolist()))

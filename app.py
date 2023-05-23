@@ -46,6 +46,11 @@ time.sleep(1)
 
 brand_df.replace(0,0.007,inplace=True)
 
+ad_cost=np.log(ad_cost)
+tranf_price=np.log(tranf_price)
+dist_cost_sc=np.log(dist_cost_sc)
+dist_cost_reg=np.log(dist_cost_reg)
+
 st.write(upper_lim_ad_dsc)
 st.write(brand_df)
 coef,intrcpt,ans=make_linear_reg_mods(brand_df,ad_cost,tranf_price,dist_cost_sc,dist_cost_reg)

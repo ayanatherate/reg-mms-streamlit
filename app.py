@@ -52,11 +52,11 @@ brand_df['Transfer_Price_COGS']=brand_df['Transfer_Price_COGS'].astype('float64'
 brand_df['Distribution_cost_supply_chain']=brand_df['Distribution_cost_supply_chain'].astype('float64')
 brand_df['Distribution_cose_Sales_-_Region']=brand_df['Distribution_cose_Sales_-_Region'].astype('float64')
 
-brand_df['Advertisement_and_discount_cost']=brand_df['Advertisement_and_discount_cost'].fillna(brand_df['Advertisement_and_discount_cost'].median)
-brand_df['Transfer_Price_COGS']=brand_df['Transfer_Price_COGS'].fillna(brand_df['Transfer_Price_COGS'].median)
-brand_df['Distribution_cost_supply_chain']=brand_df['Distribution_cost_supply_chain'].fillna(brand_df['Distribution_cost_supply_chain'].median)
-brand_df['Distribution_cose_Sales_-_Region']=brand_df['Distribution_cose_Sales_-_Region'].fillna(brand_df['Distribution_cose_Sales_-_Region'].median)
-brand_df['Gross_Sales']=brand_df['Gross_Sales'].fillna(brand_df['Gross_Sales'].median)
+brand_df['Advertisement_and_discount_cost']=brand_df['Advertisement_and_discount_cost'].fillna(brand_df['Advertisement_and_discount_cost'].median())
+brand_df['Transfer_Price_COGS']=brand_df['Transfer_Price_COGS'].fillna(brand_df['Transfer_Price_COGS'].median())
+brand_df['Distribution_cost_supply_chain']=brand_df['Distribution_cost_supply_chain'].fillna(brand_df['Distribution_cost_supply_chain'].median())
+brand_df['Distribution_cose_Sales_-_Region']=brand_df['Distribution_cose_Sales_-_Region'].fillna(brand_df['Distribution_cose_Sales_-_Region'].median())
+brand_df['Gross_Sales']=brand_df['Gross_Sales'].fillna(brand_df['Gross_Sales'].median())
 
 brand_df.replace(0,0.001,inplace=True)
 

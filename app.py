@@ -96,22 +96,22 @@ dist_cost_reg=st.text_input('Enter your cost spent on Distribution Costs, Region
 if ad_cost:
     ad_cost=np.log(int(ad_cost))
 else:
-    ad_cost=100000
+    ad_cost=np.log(100000)
 
 if tranf_price:
     tranf_price=np.log(int(tranf_price))
 else:
-    tranf_price=100000
+    tranf_price=np.log(100000)
 
 if dist_cost_sc:
     dist_cost_sc=np.log(int(dist_cost_sc))
 else:
-    dist_cost_sc=1
+    dist_cost_sc=np.log(1)
 
 if dist_cost_reg:
     dist_cost_reg=np.log(int(dist_cost_reg))
 else:
-    dist_cost_reg=1
+    dist_cost_reg=np.log(1)
 
 coef,intrcpt,ans=make_linear_reg_mods(brand_df,ad_cost,tranf_price,dist_cost_sc,dist_cost_reg)
 

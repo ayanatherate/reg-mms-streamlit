@@ -120,6 +120,13 @@ st.title(f'Based on a Regression model trained on {len(brand_df)} records, the e
 st.caption('SEE ALSO:')
 st.write(f'Coefficients: {coef[0]}, {coef[1]}, {coef[2]}, {coef[3]}')
 st.write(f'Intercept value: {intrcpt}')
+
+def convert_df(df):
+        return df.to_csv(index=False).encode('utf-8')
+
+
+csv = convert_df(brand_df)
+st.download_button("Press to Download User Interaction CSV",csv,"file.csv","text/csv",key='download-csv')
      
 
 

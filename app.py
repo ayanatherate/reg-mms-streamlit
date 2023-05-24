@@ -36,7 +36,7 @@ else:
         st.title('Insufficent Data in either Region or Brand to train a Model.')
         st.stop()
     
-#st.write(len(brand_df))
+st.write(len(brand_df))
 
 
 
@@ -65,7 +65,7 @@ else:
 
 
 
-brand_df.fillna(0.007,inplace=True)
+
 
 st.write(brand_df)
 

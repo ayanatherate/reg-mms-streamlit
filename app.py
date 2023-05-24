@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd 
 import numpy as np  
+import matplotlib.pyplot as plt
 import math
 import time
 
@@ -18,6 +19,8 @@ numeric_cols=data
 
 brand_choices=list(set(data['Brand_Family_Desc'].tolist()))
 region_choices=list(set(data['region_desc'].tolist()))
+
+brand_choices.remove('ALL')
 
 #brand_choices=brand_choices.remove('nan')
 #region_choices=region_choices.remove('nan')
@@ -41,6 +44,7 @@ else:
 
 
 
+
 #brand_df.drop(['Unnamed: 0','Brand_Family_Desc','region_desc'],axis=1,inplace=True)
 
 brand_df['Advertisement_and_discount_cost']=brand_df['Advertisement_and_discount_cost'].astype('float64')
@@ -56,6 +60,14 @@ brand_df['Gross_Sales']=brand_df['Gross_Sales'].fillna(brand_df['Gross_Sales'].m
 
 brand_df.replace(0,0.007,inplace=True)
 send_df_user=brand_df
+
+fig, ax = plt.subplots()
+
+# Plot the four line plots
+ax.plot(x, y1, label='sin(x)')
+ax.plot(x, y2, label='cos(x)')
+ax.plot(x, y3, label='tan(x)')
+ax.plot(x, y4, label='exp(x)')
 
 if brand_df['Advertisement_and_discount_cost'].isna().sum()>0 or brand_df['Transfer_Price_COGS'].isna().sum()>0 or brand_df['Distribution_cost_supply_chain'].isna().sum()>0 or brand_df['Distribution_cose_Sales_-_Region'].isna().sum()>0 or brand_df['Gross_Sales'].isna().sum()>0:
     st.title('Insufficient Data to train a Model.')

@@ -55,6 +55,7 @@ brand_df['Distribution_cose_Sales_-_Region']=brand_df['Distribution_cose_Sales_-
 brand_df['Gross_Sales']=brand_df['Gross_Sales'].fillna(brand_df['Gross_Sales'].median())
 
 brand_df.replace(0,0.007,inplace=True)
+send_df_user=brand_df
 
 if brand_df['Advertisement_and_discount_cost'].isna().sum()>0 or brand_df['Transfer_Price_COGS'].isna().sum()>0 or brand_df['Distribution_cost_supply_chain'].isna().sum()>0 or brand_df['Distribution_cose_Sales_-_Region'].isna().sum()>0 or brand_df['Gross_Sales'].isna().sum()>0:
     st.title('Insufficient Data to train a Model.')
@@ -123,7 +124,7 @@ st.write(f'Coefficients: {coef[0]}, {coef[1]}, {coef[2]}, {coef[3]}')
 st.write(f'Intercept value: {intrcpt}')
 
 
-csv = convert_df(brand_df)
+csv = convert_df(send_df_user)
 st.download_button("Press to Download User Interaction CSV",csv,"file.csv","text/csv",key='download-csv')
      
 

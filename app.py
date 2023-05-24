@@ -9,8 +9,8 @@ from perf_regression import make_linear_reg_mods
 from helper_converts import convert_df
 
 #reading data to memory
-data=pd.read_csv('https://raw.githubusercontent.com/ayanatherate/reg-mms-streamlit/main/Ct_data_bv_state.csv')
-st.write(len(data))
+data=pd.read_csv('https://raw.githubusercontent.com/ayanatherate/reg-mms-streamlit/main/Ct_data_bv_state_wtht_dfnc.csv')
+#st.write(len(data))
 #data processing
 
 data.dropna(subset=['Brand_Family_Desc'], inplace=True)

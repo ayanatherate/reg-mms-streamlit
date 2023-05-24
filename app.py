@@ -106,12 +106,12 @@ else:
 if dist_cost_sc:
     dist_cost_sc=np.log(int(dist_cost_sc))
 else:
-    dist_cost_sc=100000
+    dist_cost_sc=1
 
 if dist_cost_reg:
     dist_cost_reg=np.log(int(dist_cost_reg))
 else:
-    dist_cost_reg=100000
+    dist_cost_reg=1
 
 coef,intrcpt,ans=make_linear_reg_mods(brand_df,ad_cost,tranf_price,dist_cost_sc,dist_cost_reg)
 

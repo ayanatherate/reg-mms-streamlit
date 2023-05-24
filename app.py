@@ -53,7 +53,7 @@ brand_df['Transfer_Price_COGS']=brand_df['Transfer_Price_COGS'].astype('float64'
 brand_df['Distribution_cost_supply_chain']=brand_df['Distribution_cost_supply_chain'].astype('float64')
 brand_df['Distribution_cose_Sales_-_Region']=brand_df['Distribution_cose_Sales_-_Region'].astype('float64')
 
-brand_df['Advertisement_and_discount_cost']=brand_df['Advertisement_and_discount_cost'].fillna(0.007))
+brand_df['Advertisement_and_discount_cost']=brand_df['Advertisement_and_discount_cost'].fillna(0.007)
 brand_df['Transfer_Price_COGS']=brand_df['Transfer_Price_COGS'].fillna(0.007)
 brand_df['Distribution_cost_supply_chain']=brand_df['Distribution_cost_supply_chain'].fillna(0.007)
 brand_df['Distribution_cose_Sales_-_Region']=brand_df['Distribution_cose_Sales_-_Region'].fillna(0.007)

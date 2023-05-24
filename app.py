@@ -21,7 +21,7 @@ numeric_cols=data
 brand_choices=list(set(data['Brand_Family_Desc'].tolist()))
 region_choices=list(set(data['region_desc'].tolist()))
 
-brand_choices.remove('ALL')
+region_choices.append('ALL')
 
 #brand_choices=brand_choices.remove('nan')
 #region_choices=region_choices.remove('nan')

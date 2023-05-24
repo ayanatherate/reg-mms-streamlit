@@ -5,11 +5,12 @@ import math
 import time
 
 from perf_regression import make_linear_reg_mods
+from helper_converts import convert_df
 
-
+#reading data to memory
 data=pd.read_csv('https://raw.githubusercontent.com/ayanatherate/reg-mms-streamlit/main/data_for_streamlit.csv')
 
-
+#data processing
 data['Brand_Family_Desc'].fillna('ALL',inplace=True)
 data['region_desc'].fillna('ALL',inplace=True)
 
@@ -120,9 +121,6 @@ st.title(f'Based on a Regression model trained on {len(brand_df)} records, the e
 st.caption('SEE ALSO:')
 st.write(f'Coefficients: {coef[0]}, {coef[1]}, {coef[2]}, {coef[3]}')
 st.write(f'Intercept value: {intrcpt}')
-
-def convert_df(df):
-        return df.to_csv(index=False).encode('utf-8')
 
 
 csv = convert_df(brand_df)

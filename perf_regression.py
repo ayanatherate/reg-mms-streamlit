@@ -18,7 +18,7 @@ def make_linear_reg_mods(brand_df,ad_cost,tranf_price,dist_cost_sc,dist_cost_reg
     for col in brand_df.columns.tolist():
         brand_df[col]=np.log(brand_df[col].values)
         
-    st.write(brand_df)
+   
     brand_df.dropna(inplace=True)
     X=brand_df.drop(['Gross_Sales'],axis=1)
     y=brand_df['Gross_Sales']

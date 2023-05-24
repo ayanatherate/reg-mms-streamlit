@@ -54,6 +54,7 @@ brand_df['Distribution_cose_Sales_-_Region']=brand_df['Distribution_cose_Sales_-
 brand_df['Gross_Sales']=brand_df['Gross_Sales'].fillna(brand_df['Gross_Sales'].median())
 
 brand_df.replace(0,0.007,inplace=True)
+brand_df.fillna(0.007,inplace=True)
 
 st.write(brand_df)
 

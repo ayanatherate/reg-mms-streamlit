@@ -55,7 +55,7 @@ brand_df['Gross_Sales']=brand_df['Gross_Sales'].fillna(brand_df['Gross_Sales'].m
 
 brand_df.replace(0,0.007,inplace=True)
 
-#st.write(brand_df)
+st.write(brand_df)
 
 brand_df.drop(['Unnamed: 0','Brand_Family_Desc','region_desc'],axis=1,inplace=True)
 

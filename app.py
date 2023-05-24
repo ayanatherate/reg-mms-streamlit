@@ -63,7 +63,7 @@ if brand_df['Advertisement_and_discount_cost'].isna().sum()>0 or brand_df['Trans
 else:
     pass
 
-#st.write(brand_df)
+st.write(brand_df)
 
 brand_df.drop(['Unnamed: 0','Brand_Family_Desc','region_desc'],axis=1,inplace=True)
 

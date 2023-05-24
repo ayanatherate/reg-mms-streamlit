@@ -45,7 +45,6 @@ else:
 
 
 
-
 #brand_df.drop(['Unnamed: 0','Brand_Family_Desc','region_desc'],axis=1,inplace=True)
 
 brand_df['Advertisement_and_discount_cost']=brand_df['Advertisement_and_discount_cost'].astype('float64')
@@ -60,6 +59,8 @@ brand_df['Distribution_cose_Sales_-_Region']=brand_df['Distribution_cose_Sales_-
 brand_df['Gross_Sales']=brand_df['Gross_Sales'].fillna(0.007)
 
 brand_df.replace(0,0.001,inplace=True)
+
+st.write(brand_df)
 send_df_user=brand_df
 
 

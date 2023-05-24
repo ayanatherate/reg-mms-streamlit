@@ -36,7 +36,7 @@ else:
         st.title('Insufficent Data in either Region or Brand to train a Model.')
         st.stop()
     
-st.write(len(brand_df))
+#st.write(len(brand_df))
 
 
 
@@ -58,6 +58,8 @@ brand_df.replace(0,0.007,inplace=True)
 if brand_df['Advertisement_and_discount_cost'].isna().sum()>=0 or brand_df['Transfer_Price_COGS'].isna().sum()>=0 or brand_df['Distribution_cost_supply_chain'].isna().sum()>=0 or brand_df['Distribution_cose_Sales_-_Region'].isna().sum()>=0 or brand_df['Gross_Sales'].isna().sum()>=0:
     st.title('Insufficient Data to train a Model.')
     st.stop()
+else:
+    pass
 
 
 

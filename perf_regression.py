@@ -8,6 +8,12 @@ linreg=linreg()
 
 
 def make_linear_reg_mods(brand_df,ad_cost,tranf_price,dist_cost_sc,dist_cost_reg):
+
+    """
+    Linear Regression on selected data after log transformation.
+    Returns the coefficients, the intercept and the y-val
+
+    """
     
     for col in brand_df.columns.tolist():
         brand_df[col]=np.log(brand_df[col].values)
@@ -36,5 +42,5 @@ def make_linear_reg_mods(brand_df,ad_cost,tranf_price,dist_cost_sc,dist_cost_reg
     return coefficients, intercept, ans
 
 
-if '__name__'=='__main__':
+if __name__=='__main__':
     make_linear_reg_mods(brand_df,ad_cost,tranf_price,dist_cost_sc,dist_cost_reg)

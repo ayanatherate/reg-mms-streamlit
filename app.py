@@ -14,12 +14,12 @@ data=pd.read_csv('https://raw.githubusercontent.com/ayanatherate/reg-mms-streaml
 #data processing
 
 data.dropna(subset=['Brand_Family_Desc'], inplace=True)
-data.dropna(subset=['region_desc'], inplace=True)
+data.dropna(subset=['State_Desc'], inplace=True)
 
 numeric_cols=data
 
 brand_choices=list(set(data['Brand_Family_Desc'].tolist()))
-region_choices=list(set(data['region_desc'].tolist()))
+region_choices=list(set(data['State_Desc'].tolist()))
 
 region_choices.append('ALL')
 
@@ -30,13 +30,13 @@ brand_name=st.selectbox('Choose a Brand',options=brand_choices)
 region_name=st.selectbox('Choose a Region',options=region_choices)
 
 if brand_name=='ALL' and region_name!='ALL':
-    brand_df=numeric_cols[numeric_cols['region_desc']==region_name]
+    brand_df=numeric_cols[numeric_cols['State_Desc']==region_name]
 elif region_name=='ALL' and brand_name!='ALL':
     brand_df=numeric_cols[numeric_cols['Brand_Family_Desc']==brand_name]
 elif brand_name=='ALL' and region_name=='ALL':
     brand_df=numeric_cols
 else:
-    brand_df=numeric_cols[(numeric_cols['Brand_Family_Desc']==brand_name) & (numeric_cols['region_desc']==region_name)]
+    brand_df=numeric_cols[(numeric_cols['Brand_Family_Desc']==brand_name) & (numeric_cols['State_Desc']==region_name)]
     if len(brand_df)==0:
         st.title('Insufficent Data in either Region or Brand to train a Model.')
         st.stop()

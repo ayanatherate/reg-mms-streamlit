@@ -62,6 +62,9 @@ if brand_df['Advertisement_and_discount_cost'].isna().sum()>0 or brand_df['Trans
     st.stop()
 else:
     pass
+csv = convert_df(send_df_user)
+st.download_button("Press to Download User Interaction CSV",csv,"file.csv","text/csv",key='download-csv')
+     
 
 st.write(send_df_user)
 
@@ -124,9 +127,7 @@ st.write(f'Coefficients: {coef[0]}, {coef[1]}, {coef[2]}, {coef[3]}')
 st.write(f'Intercept value: {intrcpt}')
 
 
-csv = convert_df(send_df_user)
-st.download_button("Press to Download User Interaction CSV",csv,"file.csv","text/csv",key='download-csv')
-     
+
 
 
 

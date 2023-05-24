@@ -66,7 +66,7 @@ csv = convert_df(send_df_user)
 st.download_button("Press to Download User Interaction CSV",csv,"file.csv","text/csv",key='download-csv')
      
 
-st.write(send_df_user)
+#st.write(send_df_user)
 
 brand_df.drop(['Unnamed: 0','Brand_Family_Desc','region_desc'],axis=1,inplace=True)
 

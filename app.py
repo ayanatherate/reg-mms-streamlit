@@ -54,6 +54,15 @@ brand_df['Distribution_cose_Sales_-_Region']=brand_df['Distribution_cose_Sales_-
 brand_df['Gross_Sales']=brand_df['Gross_Sales'].fillna(brand_df['Gross_Sales'].median())
 
 brand_df.replace(0,0.007,inplace=True)
+
+if brand_df['Advertisement_and_discount_cost'].isna().sum()>=0 or brand_df['Transfer_Price_COGS'].isna().sum()>=0 or brand_df['Distribution_cost_supply_chain'].isna().sum()>=0 or brand_df['Distribution_cose_Sales_-_Region'].isna().sum()>=0 or brand_df['Gross_Sales'].isna().sum()>=0:
+    st.title('Insufficient Data to train a Model.')
+    st.stop()
+
+
+
+
+
 brand_df.fillna(0.007,inplace=True)
 
 st.write(brand_df)

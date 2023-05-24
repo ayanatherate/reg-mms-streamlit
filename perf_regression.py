@@ -16,13 +16,7 @@ def make_linear_reg_mods(brand_df,ad_cost,tranf_price,dist_cost_sc,dist_cost_reg
     X=brand_df.drop(['Gross_Sales'],axis=1)
     y=brand_df['Gross_Sales']
 
-    
-    
-    
-    
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.10, random_state=42)
-    
-    
     
     linreg.fit(X_train,y_train)
     y_pred=linreg.predict(X_test)

@@ -60,7 +60,7 @@ brand_df['Gross_Sales']=brand_df['Gross_Sales'].fillna(0.007)
 
 brand_df.replace(0,0.001,inplace=True)
 
-st.write(brand_df)
+#st.write(brand_df)
 send_df_user=brand_df
 
 

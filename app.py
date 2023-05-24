@@ -79,21 +79,39 @@ upper_lim_ad_dr=sorted(brand_df['Distribution_cose_Sales_-_Region'].values)[-1]
 lower_lim_ad_dr=sorted(brand_df['Distribution_cose_Sales_-_Region'].values)[0]
 
 
-ad_cost=st.slider(label='Enter your cost spent on Advertisement',min_value=1,max_value=100000000,value=1000000,step=1000)
-time.sleep(1)
-tranf_price=st.slider(label='Enter your cost on Transfer Price',min_value=1,max_value=100000000,value=1000000,step=1000)
-time.sleep(1)
-dist_cost_sc=st.slider(label='Enter your cost spent on Distribution Costs, Supply Chain',min_value=1,max_value=100000000,value=1000000,step=1000)
-time.sleep(1)
-dist_cost_reg=st.slider(label='Enter your cost spent on Distribution Costs, Region',min_value=1,max_value=100000000,value=1000000,step=1000)
-time.sleep(1)
+#ad_cost=st.slider(label='Enter your cost spent on Advertisement',min_value=1,max_value=100000000,value=1000000,step=1000)
+#time.sleep(1)
+#tranf_price=st.slider(label='Enter your cost on Transfer Price',min_value=1,max_value=100000000,value=1000000,step=1000)
+#time.sleep(1)
+#dist_cost_sc=st.slider(label='Enter your cost spent on Distribution Costs, Supply Chain',min_value=1,max_value=100000000,value=1000000,step=1000)
+#time.sleep(1)
+#dist_cost_reg=st.slider(label='Enter your cost spent on Distribution Costs, Region',min_value=1,max_value=100000000,value=1000000,step=1000)
+#time.sleep(1)
 
+ad_cost=st.text_input('Enter your cost spent on Advertisement')
+tranf_price=st.text_input('Enter your cost on Transfer Price')
+dist_cost_sc=st.text_input('Enter your cost spent on Distribution Costs, Supply Chain')
+dist_cost_reg=st.text_input('Enter your cost spent on Distribution Costs, Region')
 
+if ad_cost:
+    ad_cost=np.log(int(ad_cost))
+else:
+    ad_cost=100000
 
-ad_cost=np.log(ad_cost)
-tranf_price=np.log(tranf_price)
-dist_cost_sc=np.log(dist_cost_sc)
-dist_cost_reg=np.log(dist_cost_reg)
+if tranf_price:
+    tranf_price=np.log(int(tranf_price))
+else:
+    tranf_price=100000
+
+if dist_cost_sc:
+    dist_cost_sc=np.log(int(dist_cost_sc))
+else:
+    dist_cost_sc=100000
+
+if dist_cost_reg:
+    dist_cost_reg=np.log(int(dist_cost_reg))
+else:
+    dist_cost_reg=100000
 
 coef,intrcpt,ans=make_linear_reg_mods(brand_df,ad_cost,tranf_price,dist_cost_sc,dist_cost_reg)
 

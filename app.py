@@ -74,7 +74,7 @@ st.download_button("Press to Download User Interaction CSV",csv,"file.csv","text
 
 #st.write(send_df_user)
 
-brand_df.drop(['Unnamed: 0','Brand_Family_Desc','region_desc'],axis=1,inplace=True)
+brand_df.drop(['Unnamed: 0','Brand_Family_Desc','State_Desc'],axis=1,inplace=True)
 
 
 upper_lim_ad_cost=sorted(brand_df['Advertisement_and_discount_cost'].values)[-1]

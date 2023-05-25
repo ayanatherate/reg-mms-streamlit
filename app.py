@@ -66,6 +66,9 @@ brand_df['Distribution_cost_supply_chain'].replace(0,brand_df['Distribution_cost
 brand_df['Distribution_cose_Sales_-_Region'].replace(0,brand_df['Distribution_cose_Sales_-_Region'].median(),inplace=True)
 brand_df['Gross_Sales'].replace(0,brand_df['Gross_Sales'].median(),inplace=True)
 
+
+st.write(brand_df)
+
 brand_df['Advertisement_and_discount_cost'].replace(0,brand_df['Advertisement_and_discount_cost'].mean(),inplace=True)
 brand_df['Transfer_Price_COGS'].replace(0,brand_df['Transfer_Price_COGS'].mean(),inplace=True)
 brand_df['Distribution_cost_supply_chain'].replace(0,brand_df['Distribution_cost_supply_chain'].mean(),inplace=True)

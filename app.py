@@ -77,7 +77,7 @@ brand_df['Gross_Sales'].replace(0,brand_df['Gross_Sales'].mean(),inplace=True)
 
 
 
-#st.write(brand_df)
+st.write(brand_df)
 send_df_user=brand_df
 
 

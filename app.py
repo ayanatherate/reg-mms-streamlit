@@ -58,7 +58,14 @@ brand_df['Distribution_cost_supply_chain']=brand_df['Distribution_cost_supply_ch
 brand_df['Distribution_cose_Sales_-_Region']=brand_df['Distribution_cose_Sales_-_Region'].fillna(brand_df['Distribution_cose_Sales_-_Region'].median())
 brand_df['Gross_Sales']=brand_df['Gross_Sales'].fillna(brand_df['Gross_Sales'].median())
 
-brand_df.replace(0,0.001,inplace=True)
+#brand_df.replace(0,0.001,inplace=True)
+
+brand_df['Advertisement_and_discount_cost'].replace(0,brand_df['Advertisement_and_discount_cost'].median(),inplace=True)
+brand_df['Transfer_Price_COGS'].replace(0,brand_df['Transfer_Price_COGS'].median(),inplace=True)
+brand_df['Distribution_cost_supply_chain'].replace(0,brand_df['Distribution_cost_supply_chain'].median(),inplace=True)
+brand_df['Distribution_cose_Sales_-_Region'].replace(0,brand_df['Distribution_cose_Sales_-_Region'].median(),inplace=True)
+brand_df['Gross_Sales'].replace(0,brand_df['Gross_Sales'].median(),inplace=True)
+
 
 #st.write(brand_df)
 send_df_user=brand_df
